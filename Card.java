@@ -11,13 +11,34 @@ public class Card
 	private String suit;
 	private int face;
 
-  	//constructors
+  	public Card(String suit, int face) {
+    this.suit = suit;
+    this.face = face;
+}
+public String getSuit() {
+    return suit;
+}
 
+public void setSuit(String suit) {
+    this.suit = suit;
+}
 
-	// modifiers
+public void setFace(int face) {
+    this.face = face;
+}
 
+public String toString() {
+    return FACES[face] + " of " + suit;
+}
 
-  	//accessors
+@Override
+public boolean equals(Object obj) {
+    if (obj instanceof Card) {
+        Card other = (Card) obj;
+        return this.suit.equals(other.suit) && this.face == other.face;
+    }
+    return false;
+}
 
   	public int getValue()
   	{
